@@ -13,4 +13,11 @@ router.post('/register',userController.registerController)
 
 router.post('/login',userController.loginController)
 
+// view recipe
+router.get('/recipes/:id',recipeController.viewRecipeController)
+
+// get related recipe
+router.get('/related-recipes',recipeController.relatedRecipesController)
+
 module.exports = router
+
