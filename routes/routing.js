@@ -48,7 +48,8 @@ router.post('/recipes/:id/save',jwtMiddleware,saveController.addToSaveRecipeCont
 
  router.delete('/recipe-collection/:id',jwtMiddleware,saveController.removeUserRecipeItemController)
 
-
+// get user download recipe list
+ router.get('/user-downloads',jwtMiddleware,downloadCotroller.getUserDownloadListController)
 
 
 module.exports = router
