@@ -53,3 +53,39 @@ exports.loginController = async(req,res)=>{
     }
     
 }
+
+// update user profile
+exports.editUserPictureController = async(req,res)=>{
+    console.log("inside editUserPictureController");
+    const picture = req.file
+    const email = req.payload
+    try{
+     const existingUser = await users.findOne({email})
+      existingUser.picture = picture.filename
+      await existingUser.save()
+        res.status(200).json(existingUser)
+          
+    }catch(error){
+        console.log(error);
+        res.status(500).json(error)
+        
+    }
+    
+}
+
+// get all user
+
+exports.getAllUsersController = async(req,res)=>{
+    console.log("inside getAllUsersController");
+    try{
+     const allUsers = await users.find({role:{$eq:"user"}})
+        res.status(200).json(allUsers)
+    }catch(error){
+        console.log(error);
+        res.status(500).json(error)
+        
+    }
+    
+}
+
+
