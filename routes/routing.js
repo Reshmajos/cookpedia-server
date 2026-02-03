@@ -67,6 +67,12 @@ router.post('/recipes/:id/save',jwtMiddleware,saveController.addToSaveRecipeCont
  // get user download recipe list
  router.get('/downloads',adminMiddleware,downloadCotroller.getDownloadListController)
 
+ // get all feedbacks list
+ router.get('/feedbacks',adminMiddleware,feedbackController.getAllFeedbackController)
+
+  // update feedbacks
+ router.put('/feedbacks/:id',adminMiddleware,feedbackController.updateFeedbackStatusController)
+
 
 module.exports = router
 
